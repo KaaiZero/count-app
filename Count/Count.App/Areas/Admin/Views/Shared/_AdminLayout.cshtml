@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Count.App</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://kit.fontawesome.com/76a3ede41f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class=" admin navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="Admin" asp-controller="Home" asp-action="Index">
+                    @*<i class="fas fa-carrot fa-lg"></i>*@@*<i class="fas fa-apple-alt fa-lg"></i>*@@*<i class="fab fa-pushed fa-lg"></i>*@
+                  <span style="color: #86ff65;"><i class="fas fa-seedling fa-lg"></i></span>Count App
+                    <sub><span style="color:#00efff"> Das</span><span style="color:#00b1ff">hbo</span><span style="color:#a099fc">ard</span></sub>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Home" asp-action="Index">Admin Home Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">User Experience</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="sidebar">
+                <ul>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Post" asp-action="Feed">
+                            <span class="icon"><i class="far fa-newspaper"></i></span>
+                            <span class="title">Feed </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="User" asp-action="Profile">
+                            <span class="icon"><i class="fas fa-user-circle"></i></span>
+                            <span class="title">Profile </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Bmi" asp-action="HealthCheck">
+                            <span class="icon"><i class="fas fa-heartbeat"></i></span>
+                            <span class="title">Health Check </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Day" asp-action="AllUserDays">
+                            <span class="icon"><i class="fas fa-book"></i></span>
+                            <span class="title">Diary </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Food" asp-action="AllFoods">
+                            <span class="icon"><i class="fas fa-seedling"></i></span>
+                            <span class="title">Food Library </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        }
+    </header>
+
+    
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.Now.Year - Count.App
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

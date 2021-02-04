@@ -1,0 +1,15 @@
+F:\Projects\repos\Count\Count.Data\bin\Debug\netcoreapp3.1\Count.Data.deps.json
+F:\Projects\repos\Count\Count.Data\bin\Debug\netcoreapp3.1\Count.Data.runtimeconfig.json
+F:\Projects\repos\Count\Count.Data\bin\Debug\netcoreapp3.1\Count.Data.runtimeconfig.dev.json
+F:\Projects\repos\Count\Count.Data\bin\Debug\netcoreapp3.1\Count.Data.dll
+F:\Projects\repos\Count\Count.Data\bin\Debug\netcoreapp3.1\Count.Data.pdb
+F:\Projects\repos\Count\Count.Data\bin\Debug\netcoreapp3.1\Count.Models.dll
+F:\Projects\repos\Count\Count.Data\bin\Debug\netcoreapp3.1\Count.Models.pdb
+F:\Projects\repos\Count\Count.Data\obj\Debug\netcoreapp3.1\Count.Data.csprojAssemblyReference.cache
+F:\Projects\repos\Count\Count.Data\obj\Debug\netcoreapp3.1\Count.Data.AssemblyInfoInputs.cache
+F:\Projects\repos\Count\Count.Data\obj\Debug\netcoreapp3.1\Count.Data.AssemblyInfo.cs
+F:\Projects\repos\Count\Count.Data\obj\Debug\netcoreapp3.1\Count.Data.csproj.CoreCompileInputs.cache
+F:\Projects\repos\Count\Count.Data\obj\Debug\netcoreapp3.1\Count.Data.csproj.CopyComplete
+F:\Projects\repos\Count\Count.Data\obj\Debug\netcoreapp3.1\Count.Data.dll
+F:\Projects\repos\Count\Count.Data\obj\Debug\netcoreapp3.1\Count.Data.pdb
+F:\Projects\repos\Count\Count.Data\obj\Debug\netcoreapp3.1\Count.Data.genruntimeconfig.cache

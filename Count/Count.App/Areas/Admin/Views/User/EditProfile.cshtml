@@ -1,0 +1,59 @@
+﻿@model Count.App.Areas.Admin.ViewModels.User.EditUserBindingModel
+@{
+    ViewData["Title"] = "EditProfile";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit Profile</h1>
+
+
+<form enctype="multipart/form-data" asp-area="Admin" asp-controller="User" asp-action="EditProfile" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+    @Html.HiddenFor(p => p.Id)
+    <div class="form-group">
+        <label>Username</label>
+        <br />
+        <input asp-for="UserName" class="form-control" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>First Name:</label>
+        <br />
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Last Name:</label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Age:</label>
+        <input asp-for="Age" class="form-control" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Height:</label>
+        <input asp-for="Height" class="form-control" />
+        <span asp-validation-for="Height" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Weigth:</label>
+        <input asp-for="Weight" class="form-control" />
+        <span asp-validation-for="Weight" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Gender:</label>
+        <select asp-for="Gender" asp-items="@Html.GetEnumSelectList<Count.Models.Gender>()" class="form-control"></select>
+        <span asp-validation-for="Gender" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Country:</label>
+        <select asp-for="Country" asp-items="@Html.GetEnumSelectList<Count.Models.Country>()" class="form-control"></select>
+        <span asp-validation-for="Country" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-success"><i class="fas fa-user-edit"></i> Edit Profile </button>
+    <br />
+    <a asp-area="Admin" asp-controller="Post" asp-action="Feed"><i>Back To Feed</i></a>
+</form>

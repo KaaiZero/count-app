@@ -1,0 +1,66 @@
+﻿@model Count.App.Areas.Admin.ViewModels.Post.DeletePostBindingModel
+@{
+    ViewData["Title"] = "DeletePost";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (Model.Author.UserName == User.Identity.Name)
+{
+    <form asp-area="Admin" asp-controller="Post" asp-action="DeletePost" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+
+        <div hidden>
+            <div class="form-group">
+                <label asp-for="AuthorId"></label>
+                <input asp-for="AuthorId" />
+                <span asp-validation-for="AuthorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Id"></label>
+                <input asp-for="Id" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Files"></label>
+                <input asp-for="Files" />
+                <span asp-validation-for="Files" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoverPhoto"></label>
+                <input asp-for="CoverPhoto" />
+                <span asp-validation-for="CoverPhoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Summary"></label>
+                <input asp-for="Summary" />
+                <span asp-validation-for="Summary" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Title"></label>
+            <br />
+            <input asp-for="Title" class="form-control" readonly />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PostedOn"></label>
+            <br />
+            <i><input asp-for="PostedOn" class="form-control" readonly /></i>
+            <span asp-validation-for="PostedOn" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Content"></label>
+            <br />
+            <textarea asp-for="Content" class="form-control" style="height:200px;" readonly> </textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        <button class="btn btn-danger"><i class="fas fa-trash"></i> Delete Post </button>
+        <br />
+        <a asp-area="Admin" asp-controller="Post" asp-action="Feed"><i>Back To Feed</i></a>
+    </form>
+}
+else{
+    @ViewData["NotTheAuthor"];
+}
+

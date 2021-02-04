@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<body id="SLIDE_BG">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <table class="table table-hover home-content">
+            <tr>
+                <td class="left-band-home">
+                    <h1>Welcome back!</h1>
+                    <p>We are glad you're using our Count App.</p>
+                    <i class="fas fa-seedling fa-10x"></i>
+                </td>
+                <td class="right-band-home">
+                    <h1>Count App</h1>
+                    <ul>
+                        <li>Our app gives you all you need to maintain your eating healthy and in check.</li>
+                        @*Bmi*@
+                        <li>The Count App connects you to people all around the world united by the desire to life a healthy lifestyle!</li>
+                        @*Post*@
+                        <li>Here you can record your meals every day, easy and fast!</li>
+                        @*Diary*@
+                        <li>With our broad database on food, you can easily keep track of your calories.</li>
+                        @*Food*@
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    }
+    else
+    {
+        <table class="table table-hover home-content">
+            <tr>
+                <td class="left-band-home">
+                    <h1>Log In or Register</h1>
+                    <p>Create and account or login to your existing one to experience the benefits of our Count App.</p>
+                    <i class="fas fa-seedling fa-10x"></i>
+                </td>
+                <td class="right-band-home">
+                    <h1>Count App</h1>
+                    <ul>
+                        <li>Our app gives you all you need to maintain your eating healthy and in check.</li>
+                        @*Bmi*@
+                        <li>The Count App connects you to people all around the world united by the desire to life a healthy lifestyle!</li>
+                        @*Post*@
+                        <li>Here you can record your meals every day, easy and fast!</li>
+                        @*Diary*@
+                        <li>With our broad database on food, you can easily keep track of your calories.</li>
+                        @*Food*@
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    }
+</body>
+

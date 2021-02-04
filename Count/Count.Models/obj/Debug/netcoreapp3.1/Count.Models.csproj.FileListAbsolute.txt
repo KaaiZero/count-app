@@ -1,0 +1,9 @@
+F:\Projects\repos\Count\Count.Models\bin\Debug\netcoreapp3.1\Count.Models.deps.json
+F:\Projects\repos\Count\Count.Models\bin\Debug\netcoreapp3.1\Count.Models.dll
+F:\Projects\repos\Count\Count.Models\bin\Debug\netcoreapp3.1\Count.Models.pdb
+F:\Projects\repos\Count\Count.Models\obj\Debug\netcoreapp3.1\Count.Models.csprojAssemblyReference.cache
+F:\Projects\repos\Count\Count.Models\obj\Debug\netcoreapp3.1\Count.Models.AssemblyInfoInputs.cache
+F:\Projects\repos\Count\Count.Models\obj\Debug\netcoreapp3.1\Count.Models.AssemblyInfo.cs
+F:\Projects\repos\Count\Count.Models\obj\Debug\netcoreapp3.1\Count.Models.csproj.CoreCompileInputs.cache
+F:\Projects\repos\Count\Count.Models\obj\Debug\netcoreapp3.1\Count.Models.dll
+F:\Projects\repos\Count\Count.Models\obj\Debug\netcoreapp3.1\Count.Models.pdb

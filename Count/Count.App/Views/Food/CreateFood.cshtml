@@ -1,0 +1,51 @@
+﻿@model Count.Models.Food
+@{
+    ViewData["Title"] = "CreateFood";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add Food</h1>
+<form asp-controller="Food" asp-action="CreateFood" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+    @Html.HiddenFor(bu => bu.UserId)
+    @Html.ValidationMessage("FoodAlreadyExists")
+    <div class="form-group">
+        <label>Food:</label>
+        <br />
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Quantity(g):</label>
+        <br />
+        <input asp-for="Quantity" class="form-control" />
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Calories:</label>
+        <br />
+        <input asp-for="Calories" class="form-control" />
+        <span asp-validation-for="Calories" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Carbs(g):</label>
+        <br />
+        <input asp-for="Carbs" class="form-control" />
+        <span asp-validation-for="Carbs" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Fats(g):</label>
+        <br />
+        <input asp-for="Fats" class="form-control" />
+        <span asp-validation-for="Fats" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Proteins(g):</label>
+        <br />
+        <input asp-for="Proteins" class="form-control" />
+        <span asp-validation-for="Proteins" class="text-danger"></span>
+    </div>
+    <button class="btn btn-success"><i class="fas fa-seedling"></i> Add</button>
+    <br />
+    <a asp-controller="Food" asp-action="AllFoods"><i>Back To Library</i></a>
+</form>

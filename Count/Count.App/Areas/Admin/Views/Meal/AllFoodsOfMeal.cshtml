@@ -1,0 +1,35 @@
+﻿@model Count.App.Areas.Admin.ViewModels.MealFood.AllFoodsOfMealVM
+@{
+    ViewData["Title"] = "AllFoodsOfMeal";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>All Foods Of Meal</h1>
+<p><i>To add more foods to a meal go to Meals of day, the meal you want your food to be added to and press the "+" button.</i></p>
+<div class="table-responsive p-0">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Food</td>
+                <td>Calories</td>
+                <td>Quantity</td>
+                <td></td>
+            </tr>
+        </thead>
+
+        @foreach (var mealfood in Model.AlFofM)
+        {
+            <tbody>
+                <tr>
+                    <td>@mealfood.Food.Name</td>
+                    <td>@mealfood.Food.Calories</td>
+                    <td>@mealfood.Food.Quantity</td>
+
+                    <td><a asp-area="Admin" asp-controller="Meal" asp-action="RemoveFoodFromMeal" asp-route-id="@mealfood.Id" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a></td>
+                </tr>
+            </tbody>
+            
+
+        }
+    </table>
+</div>

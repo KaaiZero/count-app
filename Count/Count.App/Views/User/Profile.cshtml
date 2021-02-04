@@ -1,0 +1,147 @@
+﻿@model Count.Models.User
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.IsDelete)
+{
+    <h3 class="text-danger">This profile has been deleted!</h3>
+}
+else
+{
+    <div>
+        <div class="ProfileContent">
+
+            <table>
+                <tr style="float:right;" class="author-post-menu">
+                    @if (Model.UserName == User.Identity.Name)
+                    {
+                        <td class="dropdown">
+                            <button class="dropbtn"><i class="fas fa-ellipsis-v"></i></button>
+                            <div class="dropdown-content">
+                                <a asp-controller="User" asp-action="EditProfile"><i class="fas fa-edit"></i> Edit</a>
+                                <a asp-controller="User" asp-action="DeleteProfile"><i class="fas fa-trash"></i> Delete</a>
+                            </div>
+                        </td>
+
+                    }
+                </tr>
+                <tr>
+                    <td>
+                        <div style="text-align:center!important;"><span class="ProfileInitials">@Model.FirstName.Substring(0, 1)@Model.LastName.Substring(0, 1)</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4>@Model.UserName</h4></td>
+                </tr>
+
+                <tr>
+                    <th colspan="2"><i>About</i></th>
+                </tr>
+                <tr>
+                    <td><b>First Name:</b></td>
+                    <td>@Model.FirstName</td>
+                </tr>
+                <tr>
+                    <td><b>Last Name:</b></td>
+                    <td>@Model.LastName</td>
+                </tr>
+                <tr>
+                    <td><b>Height:</b></td>
+                    <td>@Model.Height</td>
+                </tr>
+                <tr>
+                    <td><b>Weight:</b></td>
+                    <td>@Model.Weight</td>
+                </tr>
+                <tr>
+                    <td><b>Gender:</b></td>
+                    <td>@Model.Gender</td>
+                </tr>
+                <tr>
+                    <td><b>Country:</b></td>
+                    <td>@Model.Country</td>
+                </tr>
+                <tr>
+                    <th colspan="2"><i>Contacts</i></th>
+                </tr>
+                <tr>
+                    <td><b>Phone number:</b></td>
+                    <td>@Model.PhoneNumber</td>
+                </tr>
+                <tr>
+                    <td><b>Email:</b></td>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <th colspan="2"><i>Activity</i></th>
+                </tr>
+                <tr>
+                    <td><b>Recorded days:</b></td>
+                    <td>@Model.Days.Where(d => d.IsDeleted == false).Count()</td>
+                </tr>
+                <tr>
+                    <td><b>Made posts:</b></td>
+                    <td>@Model.Posts.Where(p => p.IsDelete == false).Count()</td>
+                </tr>
+                <tr>
+                    <td><b>Recorded BMI's:</b></td>
+                    <td>@Model.UserBmis.Where(up => up.IsDeleted == false).Count()</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div>
+        @foreach (var post in Model.Posts.OrderByDescending(p => p.PostedOn))
+        {
+            if (post.IsDelete == false)
+            {
+                <div class="Post">
+                    <ul>
+                        <li>
+                            <span class="Initials">@post.Author.FirstName.Substring(0, 1)@post.Author.LastName.Substring(0, 1)</span>
+                            <span>@post.Author.UserName</span>
+
+                            <div style="float:right;" class="author-post-menu">
+                                @if (post.Author.UserName == User.Identity.Name)
+                                {
+                                    <div class="dropdown">
+                                        <button class="dropbtn"><i class="fas fa-ellipsis-v"></i></button>
+                                        <div class="dropdown-content">
+                                            <a asp-controller="Post" asp-action="DetailsPost" asp-route-id="@post.Id"><i class="fas fa-info-circle"></i> Details</a>
+                                            <a  asp-controller="Post" asp-action="EditPost" asp-route-id="@post.Id"><i class="fas fa-edit"></i> Edit</a>
+                                            <a  asp-controller="Post" asp-action="DeletePost" asp-route-id="@post.Id"><i class="fas fa-trash"></i> Delete</a>
+                                        </div>
+                                    </div>
+
+                                }
+                            </div>
+                            <br />
+                            <span style="color:#000000; font-size:15px;">
+                                <i> @post.PostedOn</i>
+                            </span>
+                        </li>
+                        <li>
+                            <a asp-controller="Post" asp-action="DetailsPost" asp-route-id="@post.Id">
+                                <h5>
+                                    @post.Title
+                                </h5>
+                                <span>
+                                    @post.Summary
+                                </span>
+                                <span>
+                                    <img />
+                                </span>
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            }
+        }
+    </div>
+}
+
+

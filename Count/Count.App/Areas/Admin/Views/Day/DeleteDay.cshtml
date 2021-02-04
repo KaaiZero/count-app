@@ -1,0 +1,29 @@
+﻿@model Count.Models.Day
+@{
+    ViewData["Title"] = "DeleteDay";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Delete Day</h1>
+<form asp-area="Admin" asp-controller="Day" asp-action="DeleteDay" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+    @Html.HiddenFor(f => f.UserId)
+    @Html.HiddenFor(f => f.Id)
+
+    <div class="form-group">
+        <label>Date:</label>
+        <br />
+        <input asp-for="Date" class="form-control" readonly />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Calories:</label>
+        <br />
+        <input asp-for="AllDayCalories" class="form-control" readonly />
+        <span asp-validation-for="AllDayCalories" class="text-danger"></span>
+    </div>
+    <button class="btn btn-danger"><i class="fas fa-trash"></i> Remove</button>
+    <br />
+    <a asp-area="Admin" asp-controller="Day" asp-action="AllUserDays"><i>Back To Diary</i></a>
+</form>
+

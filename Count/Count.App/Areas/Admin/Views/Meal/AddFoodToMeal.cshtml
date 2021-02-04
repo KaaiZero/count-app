@@ -1,0 +1,28 @@
+﻿@*@model Count.App.Areas.Admin.ViewModels.MealFood.CreateMealFoodVM*@
+@model Count.Models.MealFood
+@{
+    ViewData["Title"] = "AddFoodToMeal";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Select Food For Meal</h1>
+<form asp-area="Admin" asp-controller="Meal" asp-action="AddFoodToMeal" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+    @Html.HiddenFor(bu => bu.MealId)
+
+    <div class="form-group">
+        <label>Food:</label>
+        <br />
+        <select asp-for="Food.Name" asp-items="@ViewBag.Food" class="form-control"></select>
+        @*<select asp-for="Foods"  multiple>
+            @foreach (var food in Model.Foods)
+            {
+                <option value="@food.Id">@food.Name</option>
+            }
+        </select>*@
+    </div>
+
+    <button class="btn btn-success"><i class="fas fa-seedling"></i> Add</button>
+    <br />
+    <a asp-area="Admin" asp-controller="Food" asp-action="AllFoodsOfMeal"><i>Back</i></a>
+</form>

@@ -1,0 +1,23 @@
+﻿@model Count.Models.Meal
+@{
+    ViewData["Title"] = "EditMeal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit Meal</h1>
+<form asp-controller="Meal" asp-action="EditMeal" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+    @Html.HiddenFor(f => f.DayId)
+    @Html.HiddenFor(f => f.Id)
+
+    <div class="form-group">
+        <label>Cource Title:</label>
+        <br />
+        <input asp-for="CourceTitle" class="form-control" />
+        <span asp-validation-for="CourceTitle" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-success"><i class="fas fa-seedling"></i> Add</button>
+    <br />
+    <a asp-controller="Day" asp-action="AllMealsOfDay" asp-route-id="@Model.DayId"><i>Back </i></a>
+</form>

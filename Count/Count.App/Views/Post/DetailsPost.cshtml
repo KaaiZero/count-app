@@ -1,0 +1,40 @@
+﻿@model Count.Models.Post
+@{
+    ViewData["Title"] = "DetailsPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <div style="float:right;" class="author-post-menu">
+        @if (Model.Author.UserName == User.Identity.Name)
+        {
+            <div class="dropdown">
+                <button class="dropbtn"><i class="fas fa-ellipsis-v"></i></button>
+                <div class="dropdown-content">
+                    <a asp-area="" asp-controller="Post" asp-action="DetailsPost" asp-route-id="@Model.Id">Details Post </a>
+                    <a asp-area="" asp-controller="Post" asp-action="EditPost" asp-route-id="@Model.Id">Edit Post </a>
+                    <a asp-area="" asp-controller="Post" asp-action="DeletePost" asp-route-id="@Model.Id">Delete Post </a>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <br />
+        <input asp-for="Title" class="form-control" readonly />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PostedOn"></label>
+        <br />
+        <i><input asp-for="PostedOn" class="form-control" readonly /></i>
+        <span asp-validation-for="PostedOn" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Content"></label>
+        <br />
+        <textarea asp-for="Content" class="form-control" style="height:200px;" readonly> </textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <a asp-area="" asp-controller="Post" asp-action="Feed">Back To Feed </a>
+</div>

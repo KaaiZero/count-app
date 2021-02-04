@@ -1,0 +1,28 @@
+﻿@model Count.Models.BmiUser
+@{
+    ViewData["Title"] = "CreateBmi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add New Bmi</h1>
+<form  asp-controller="Bmi" asp-action="CreateBmi" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+    @Html.HiddenFor(bu => bu.UserId)
+
+    <div class="form-group">
+        <label>Height(Cm)</label>
+        <br />
+        <input asp-for="Height" class="form-control" />
+        <span asp-validation-for="Height" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Weight(Kg):</label>
+        <br />
+        <input asp-for="Weight" class="form-control" />
+        <span asp-validation-for="Weight" class="text-danger"></span>
+    </div>
+    <button class="btn btn-success"><i class="fas fa-user-edit"></i> Add</button>
+    <br />
+    <a asp-controller="Bmi" asp-action="HealthCheck"><i>Back To Health Check</i></a>
+</form>
+

@@ -1,0 +1,58 @@
+﻿@model Count.App.Models.Food.FoodsViewModel
+@{
+    ViewData["Title"] = "AllFoods";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Foods Library</h1>
+<div class="FeedCreateBand">
+    <ul>
+        <li>
+            <a asp-controller="Food" asp-action="CreateFood">
+                <span><i class="fas fa-user-edit"></i></span>
+                <span>Add Food</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="table-responsive p-0">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Food</td>
+                <td>Calories</td>
+                <td>Quantity(g)</td>
+                <td class="text-danger">Carbs(g)</td>
+                <td class="text-warning">Fats(g)</td>
+                <td class="text-success">Proteins(g)</td>
+                <td>Meals</td>
+                <td>Added By</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+
+        @foreach (var food in Model.AllFoods.OrderBy(f => f.Name))
+        {
+            @if (food.IsDelete == false)
+            {
+                <tbody>
+                    <tr>
+                        <td>@food.Name</td>
+                        <td>@food.Calories</td>
+                        <td>@food.Quantity gm</td>
+                        <td class="text-danger">@food.Carbs gm</td>
+                        <td class="text-warning">@food.Fats gm</td>
+                        <td class="text-success">@food.Proteins gm</td>
+                        <td>@food.Meals.Count()</td>
+                        <td>@food.User.UserName</td>
+                        <td><a asp-controller="Food" asp-action="EditFood" asp-route-id="@food.Id" class="btn btn-outline-dark"><i class="fas fa-edit"></i></a></td>
+                        <td><a asp-controller="Food" asp-action="DeleteFood" asp-route-id="@food.Id" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                </tbody>
+            }
+
+        }
+    </table>
+</div>
+

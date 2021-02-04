@@ -1,0 +1,49 @@
+﻿@model Count.App.Models.Day.MealsOfDayViewModel
+@{
+    ViewData["Title"] = "AllMealsOfDay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>All meals of day</h1>
+<p><i>To add more meals to a day go to Library, the day you want your meal to be added to and press the "+" button.</i></p>
+<div class="table-responsive p-0">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Title</td>
+                <td>Calories</td>
+                <td>Day</td>
+                <td>Foods</td>
+                <td>Status</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+
+        @foreach (var meal in Model.MealsOfDay)
+        {
+            @if (meal.IsDeleted == false && meal.Day.IsDeleted == false)
+            {
+                <tbody>
+                    <tr>
+                        <td>@meal.CourceTitle</td>
+                        <td>@meal.AllCalories</td>
+                        <td>@meal.Day.Date.ToShortDateString()</td>
+                        <td>@meal.Foods.Count()</td>
+                        <td>@meal.IsComplete</td>
+
+                        <td><a asp-controller="Meal" asp-action="AddFoodToMeal" asp-route-id="@meal.Id" title="Add food to this meal" class="btn btn-outline-dark"><i class="fas fa-plus-circle"></i></a></td>
+                        <td><a asp-controller="Meal" asp-action="AllFoodsOfMeal" asp-route-id="@meal.Id" title="All foods of this meal" class="btn btn-outline-dark"><i class="fas fa-file-alt"></i></a></td>
+                        <td><a asp-controller="Meal" asp-action="EditMeal" asp-route-id="@meal.Id" class="btn btn-outline-dark"><i class="fas fa-edit"></i></a></td>
+                        <td><a asp-controller="Meal" asp-action="DeleteMeal" asp-route-id="@meal.Id" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                </tbody>
+            }
+
+        }
+    </table>
+</div>
+
+

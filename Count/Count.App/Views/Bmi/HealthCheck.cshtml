@@ -1,0 +1,68 @@
+﻿@model Count.App.Models.Bmi.AllUserBmisViewModel
+@{
+    ViewData["Title"] = "HealthCheck";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Health Check</h1>
+
+<div class="FeedCreateBand">
+    <ul>
+        <li>
+            <a asp-controller="Bmi" asp-action="CreateBmi">
+                <span><i class="fas fa-user-edit"></i></span>
+                <span>Create New Bmi </span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="table-responsive p-0">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Indicator</td>
+                <td>Bmi</td>
+                <td>Date</td>
+                <td>Weight(Kg)</td>
+                <td>Height(Cm)</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+
+        @foreach (var bmi in Model.AllUserBmis.OrderByDescending(bu => bu.Date))
+        {
+            @if (bmi.IsDeleted == false)
+            {
+                <tbody>
+                    <tr>
+                        @if (bmi.Bmi.ToString() == "Overweight")
+                        {
+                            <td class="table-danger">@bmi.Bmi</td>
+                            <td class="text-danger">@bmi.CalculatedBmi</td>
+                        }
+                        else if (bmi.Bmi.ToString() == "Normal")
+                        {
+                            <td class="table-success">@bmi.Bmi</td>
+                            <td class="text-success">@bmi.CalculatedBmi</td>
+                        }
+                        else
+                        {
+                            <td class="table-warning">@bmi.Bmi</td>
+                            <td class="text-warning">@bmi.CalculatedBmi</td>
+                        }
+
+
+                        <td><i>@bmi.Date</i></td>
+                        <td>@bmi.Weight</td>
+                        <td>@bmi.Height</td>
+                        <td><a asp-controller="Bmi" asp-action="EditBmi" asp-route-id="@bmi.Id" class="btn btn-outline-dark"><i class="fas fa-edit"></i></a></td>
+                        <td><a asp-controller="Bmi" asp-action="DeleteBmi" asp-route-id="@bmi.Id" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                </tbody>
+            }
+
+        }
+    </table>
+</div>
+

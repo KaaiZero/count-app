@@ -1,0 +1,66 @@
+﻿@model Count.App.Models.Day.DaysOfUserViewModel
+@{
+    ViewData["Title"] = "AllUserDays";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Diary</h1>
+@if (ViewData["DayExists"] != null)
+{
+    <h4 class="text-danger">@ViewData["DayExists"]</h4>
+}
+else
+{
+
+}
+
+<div class="FeedCreateBand">
+    <ul>
+        <li>
+            <a asp-controller="Day" asp-action="CreateDay">
+                <span><i class="fas fa-user-edit"></i></span>
+                <span>Add Day</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="table-responsive p-0">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Date</td>
+                <td>Calories</td>
+                <td>Status</td>
+                <td>Meals</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+
+        @foreach (var day in Model.DaysOfUser.OrderByDescending(f => f.Date))
+        {
+            @if (day.IsDeleted == false)
+            {
+                <tbody>
+                    <tr>
+                        <td>@day.Date.ToShortDateString()</td>
+                        <td>@day.AllDayCalories</td>
+                        @if (day.IsComplete)
+                        {
+                            <td>Completed</td>
+                        }
+                        else
+                        {
+                            <td>Not Completed</td>
+                        }
+                        <td>@day.Meals.Count()</td>
+                        <td><a asp-controller="Meal" asp-action="CreateMeal" asp-route-id="@day.Id" title="Create meal for this day" class="btn btn-outline-dark"><i class="fas fa-plus-circle"></i></a></td>
+                        <td><a asp-controller="Day" asp-action="AllMealsOfDay" asp-route-id="@day.Id" title="Meals of the day" class="btn btn-outline-dark"><i class="fas fa-file-alt"></i></a></td>
+                        <td><a asp-controller="Day" asp-action="DeleteDay" asp-route-id="@day.Id" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                </tbody>
+            }
+
+        }
+    </table>
+</div>

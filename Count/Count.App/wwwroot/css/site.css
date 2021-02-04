@@ -1,0 +1,372 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+*{
+    font-size:16px;
+}
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+.btn-success {
+    color:#fff;
+    background-color: #89e85e;
+    border-color: #81fb4a;
+}
+.btn-success:hover {
+    background-color: #4bfd4d;
+}
+a{
+    color:black;
+}
+a:hover {
+    color: rgba(57, 58, 59, 0.82);
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #89e85e;
+    border-color: #81fb4a;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  margin-left:20px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+.sidebar {
+    position:absolute;
+    top: 70px;
+    left: 10px;
+    background: white;
+    width:200px;
+    height:80%; 
+    border-bottom-left-radius:20px;
+    transition:all 0.3s ease; 
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .07);
+}
+    .sidebar ul{
+        list-style:none;
+        padding:0px; 
+
+    }
+    .sidebar ul li a {
+        display: block;
+        padding: 20px;
+        position: relative;
+        margin-bottom: 1px;
+        color: #000000;
+    }
+    .sidebar ul li a:before{
+        content:"";
+        position:absolute;
+        top:0;
+        left:0;
+        width:3px;
+        height:100%;
+    }
+    .sidebar ul li a:hover {
+        background:rgba(128, 128, 128, 0.05); 
+
+    }
+    .sidebar ul li a span .icon{
+        margin-right:10px;
+        display:inline-block;
+    }
+    .sidebar ul li a span .title {
+        display: inline-block;
+    }
+    .sidebar body{
+        width:calc(100%-200px);
+        margin-top:70px;
+        margin-left:200px;
+        padding:15px;
+        transition: all 0.3s ease;
+    }
+
+.FeedCreateBand {
+    background: white;
+    width: 180px;
+    height: 40px;
+    border-bottom-left-radius: 20px;
+    margin:8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.07);
+}
+    .FeedCreateBand ul {
+        list-style: none;
+        padding: 0px
+    }
+    .FeedCreateBand ul li a {
+        display: block;
+        position: relative;
+        margin: 2px;
+        padding:7px;
+        color: #000000;
+    }
+    .FeedCreateBand ul li a:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+    }
+    .FeedCreateBand ul li a:hover {
+        background: rgba(128, 128, 128, 0.05);
+        border-bottom-left-radius: 20px;
+    }
+.Post {
+    background: white;
+    width: 80%;
+    margin: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.07);
+}
+    .Post ul {
+            list-style: none;
+            padding: 0px
+    }
+    .Post ul li a {
+        display: block;
+        position: relative;
+        margin: 2px;
+        padding:7px;
+        color: #000000;
+    }
+    .Post ul li a:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+    }
+    .Post ul li a:hover {
+        background: rgba(128, 128, 128, 0.05);
+        border-bottom-left-radius: 20px;
+    }
+    .Initials {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 50%;
+        color: #fff;
+        text-align: center;
+        background:rgba(129, 254, 130, 0.75);
+    }
+
+/*dropdown button form edit and delete commands on content post*/
+.dropbtn {
+  background-color: rgba(0, 0, 0, 0.00);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      
+    }
+
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    .dropdown:hover .dropdown-content {display: block;}
+
+    .dropdown:hover .dropbtn {background-color: rgba(128, 128, 128, 0.05);}
+
+.ProfileInitials {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    background: rgba(129, 254, 130, 0.75);
+    
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ProfileContent {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.07);
+    padding:20px;
+}
+    .ProfileContent table {
+        display:flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .ProfileContent table tr td{
+        text-align: center;
+        align-items:center;
+        justify-content:center;
+    }
+    .ProfileContent table tr th {
+        color: rgb(129, 254, 130);
+        font-size: 20px;
+        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.07);
+    }
+    .ProfileContent table tr td span{
+
+    }
+.table {
+    background-color: white;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.07);
+    padding: 20px;
+}
+.bodyLoginRegBackground {
+   background-image:url(../img/Backgroud-img.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position-y:center;
+    background-position-x:right;
+}
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**/
+/*Home page slide show*/
+
+#SLIDE_BG {
+    align-content:initial;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    animation: slideBG 20s linear infinite 0s;
+    animation-timing-function: ease-in-out;
+    background-image: url(/img/224-2249981_culinary-wallpapers-hd.jpg);
+}
+
+@keyframes slideBG {
+    0% {
+        background-image: url(/img/mediterranean-food-pasta-tomato-olives-garlic-uhd-4k-walpaper.jpg);
+    }
+
+    25% {
+        background-image: url(/img/how.jpg);
+    }
+
+    50% {
+        background-image: url(/img/Food-Wallpapers-016.jpg);
+    }
+
+    75% {
+        background-image: url(/img/Tomatoes_Garlic_Pasta_Bottle_Oil_519848_2560x1440.jpg);
+    }
+
+    100% {
+        background-image: url(/img/1595975251_shutterstock_577601638.gif);
+    }
+}
+#SLIDE_BG .home-content {
+   
+    margin-left:150px;
+    align-content:center;
+    width: 800px;
+    height: 615px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.69);
+    border:none;
+}
+    #SLIDE_BG .home-content .left-band-home {
+        padding-top: 70px;
+        background-color: rgba(0, 0, 0, 0.78);
+        color: #fff;
+        border: none;
+        width:30%;
+    }
+        #SLIDE_BG .home-content .right-band-home {
+            padding-top: 70px;
+            color: #fff;
+            border: none;
+        }
+        #SLIDE_BG .home-content .right-band-home:hover {
+            border: none;
+            color: #fff;
+        }
+    #SLIDE_BG .home-content .left-band-home .fa-seedling {
+        color:white;
+        text-align:center;
+    }
+.admin{
+     padding:10px;
+}
+.user {
+    padding: 10px;
+}
